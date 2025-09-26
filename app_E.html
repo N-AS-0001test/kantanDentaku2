@@ -125,7 +125,6 @@
             if (char === '.' && this.current.includes('.')) return;
             // 入力値を画面表示(主に追加)
               this.current = (this.current === '0' && char !== '.') ? char : this.current + char;
-            }
           } else if ('+-*/'.includes(char)) {
             // 計算結果表示済みなので、結果の値を「入力値」に登録する
             this.previous = parseFloat(this.current);
