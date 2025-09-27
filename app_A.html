@@ -135,6 +135,11 @@
               this.current = (this.current === '0' && char !== '.') ? char : this.current + char;
             }
           } else if ('+-*/'.includes(char)) {
+            // 四則演算子入力の場合
+            if (this.operator && !this.waitingForNext) {
+              // 「演算子入力済み」かつ「演算子の次の数字を入力済み」の場合は計算を実行する
+              this.calculate();
+            }
             // 計算結果表示済みなので、結果の値を「入力値」に登録する
             this.previous = parseFloat(this.current);
             // 今回入力された演算子を次の計算の演算子として設定する
