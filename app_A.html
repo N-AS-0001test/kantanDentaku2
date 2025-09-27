@@ -118,6 +118,14 @@
         input(char) {
           console.log("input : " + char);
           if ('0123456789.'.includes(char)) {
+            // 数字入力、小数点入力の場合
+            if (this.waitingForNext) {
+              // 演算子の次の数字を入力待ちの場合
+              // 入力値を画面表示(主に上書き)
+              this.current = (char === '.' ? '0.' : char);
+              // 演算子を入力直後の状態を解除
+              this.waitingForNext = false;
+            } else {
               // それ以外(「演算子の次の数字を入力済み」または「演算子入力前」)の場合
               // 画面表示の最大長を超えるような文字入力をさせない
               if (this.current.length >= maxLength) return;
@@ -125,6 +133,7 @@
             if (char === '.' && this.current.includes('.')) return;
             // 入力値を画面表示(主に追加)
               this.current = (this.current === '0' && char !== '.') ? char : this.current + char;
+            }
           } else if ('+-*/'.includes(char)) {
             // 計算結果表示済みなので、結果の値を「入力値」に登録する
             this.previous = parseFloat(this.current);
