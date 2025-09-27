@@ -23,7 +23,7 @@
     }
     .display {
       background: #222;
-      color: #f0f;
+      color: #0f0;
       font-size: 2em;
       text-align: right;
       padding: 20px;
@@ -46,6 +46,7 @@
       background: #bbb;
     }
     .plus {
+      grid-row: span 2;
       background: #f90;
       color: #fff;
     }
@@ -69,7 +70,7 @@
       <button class="memory" @click="memoryClear">MC</button>
 
       <button class="operator" @click="clearAll">AC</button>
-      <button class="operator" @click="clearEntry">C</button>
+      <button class="operator" @click="clearEntry">CE</button>
       <button class="operator" @click="input('%')">%</button>
       <button class="operator" @click="input('/')">÷</button>
 
