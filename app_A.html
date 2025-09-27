@@ -215,13 +215,13 @@
         memoryAdd() {
           console.log("memoryAdd");
           // メモリ値に現在の表示値を加算して、メモリ値として再設定する
-          this.memory = parseFloat(this.current);
+          this.memory += parseFloat(this.current);
         },
         // メモリ減算
         memorySubtract() {
           console.log("memorySubtract");
           // メモリ値から現在の表示値を減算して、メモリ値として再設定する
-          this.memory = -parseFloat(this.current);
+          this.memory -= parseFloat(this.current);
         },
         // メモリ読み出し
         memoryRecall() {
